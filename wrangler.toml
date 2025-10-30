@@ -1,0 +1,8 @@
+name = "workflow-management"
+compatibility_date = "2024-01-01"
+
+[env.production]
+account_id = ""  # 你需要填入你的Cloudflare账户ID
+
+# Pages配置
+pages_build_output_dir = "."
