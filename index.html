@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教育智能综合管理平台 - 工作流管理</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="top-header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>启辰测试学校</span>
+            </div>
+            <nav class="top-nav">
+                <a href="#" class="nav-item active">数智教服综合服务引擎</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <span class="user-info">v6.4.19</span>
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- 左侧导航 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>主要功能</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-group">
+                    <div class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>工作台</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>教辅管理</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>考试管理</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>教学班管理</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>学生管理</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>教师管理</span>
+                    </div>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-title">管理中心</div>
+                    <div class="nav-item active">
+                        <i class="fas fa-cogs"></i>
+                        <span>工作流</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-users-cog"></i>
+                        <span>教育机构</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>角色管理</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-database"></i>
+                        <span>学科管理</span>
+                    </div>
+                </div>
+
+                <div class="nav-group">
+                    <div class="nav-group-title">系统管理</div>
+                    <div class="nav-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>行为分析</span>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="breadcrumb">
+                    <span>管理中心</span>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>工作流</span>
+                    <i class="fas fa-chevron-right"></i>
+                    <span class="current">工作流管理</span>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-primary" id="addWorkflowBtn">
+                        <i class="fas fa-plus"></i>
+                        新增工作流设置
+                    </button>
+                </div>
+            </div>
+
+            <div class="workflow-management">
+                <div class="header-section">
+                    <div class="title-area">
+                        <h1 class="page-title">工作流管理V2</h1>
+                        <p class="page-subtitle">管理系统中的用以评分的工作流信息</p>
+                    </div>
+
+                </div>
+
+                <!-- 高级筛选区域 -->
+                <div class="advanced-filter-section">
+                    <div class="filter-icon-area">
+                        <div class="filter-icon">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <div class="filter-text">
+                            <div class="filter-title">高级筛选</div>
+                            <div class="filter-subtitle">精确筛选您需要的工作流</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 筛选选择器区域 -->
+                    <div class="filter-selectors">
+                        <div class="filter-group">
+                            <select class="filter-select" id="workflowNameFilter">
+                                <option value="">选择工作流名称</option>
+                                <option value="wf.ocr.liberal_small">文科小区域队列</option>
+                                <option value="wf.ocr.science_small">理科小区域队列</option>
+                                <option value="wf.ocr.table_text">表格文字队列</option>
+                                <option value="wf.ocr.composition">大作文队列</option>
+                                <option value="wf.ocr.formula">公式符号队列</option>
+                            </select>
+                            <select class="filter-select" id="tenantFilter">
+                                <option value="">选择租户</option>
+                                <option value="tenant1">租户1</option>
+                                <option value="tenant2">租户2</option>
+                            </select>
+                            <select class="filter-select" id="subjectFilter">
+                                <option value="">选择学科</option>
+                                <option value="math">数学</option>
+                                <option value="chinese">语文</option>
+                                <option value="english">英语</option>
+                            </select>
+                            <select class="filter-select" id="gradeFilter">
+                                <option value="">选择年级</option>
+                                <option value="grade1">一年级</option>
+                                <option value="grade2">二年级</option>
+                                <option value="grade3">三年级</option>
+                            </select>
+                            <select class="filter-select" id="questionTypeFilter">
+                                <option value="">选择题型</option>
+                                <option value="choice">选择题</option>
+                                <option value="fill">填空题</option>
+                                <option value="essay">问答题</option>
+                            </select>
+                        </div>
+                        <div class="button-group">
+                            <button class="filter-query-btn" onclick="performFilter()">
+                                <svg class="query-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                查询
+                            </button>
+                            <button class="filter-clear-btn" onclick="clearFilters()">
+                                <svg class="clear-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                清除筛选
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="list-header">
+                    </div>
+                </div>
+
+                <!-- 工作流列表 -->
+                <div class="workflow-list">
+                    <div class="list-header-info">
+                        <i class="fas fa-th-list"></i>
+                        <span class="list-title">工作流列表</span>
+                        <span class="list-count">共 0 个工作流</span>
+                    </div>
+                    
+                    <!-- 表头 -->
+                    <div class="table-header">
+                        <div class="header-cell">工作流名称</div>
+                        <div class="header-cell">租户</div>
+                        <div class="header-cell">学科</div>
+                        <div class="header-cell">年级</div>
+                        <div class="header-cell">题型</div>
+                        <div class="header-cell">操作</div>
+                    </div>
+                    
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-inbox"></i>
+                        </div>
+                        <div class="empty-text">暂无数据</div>
+                    </div>
+                </div>
+
+                    <!-- 分页 -->
+                    <div class="pagination">
+                        <button class="page-btn" disabled>上一页</button>
+                        <span class="page-info">第 1 页，共 1 页</span>
+                        <button class="page-btn" disabled>下一页</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 新增工作流模态框 -->
+    <div class="modal" id="addWorkflowModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">新增工作流设置</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="workflowForm">
+                    <div class="form-group">
+                        <label for="tenant"><span class="required">*</span> 租户</label>
+                        <select id="tenant" name="tenant" required>
+                            <option value="">请选择租户</option>
+                            <option value="tenant1">租户1</option>
+                            <option value="tenant2">租户2</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject"><span class="required">*</span> 学科</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">请选择学科</option>
+                            <option value="math">数学</option>
+                            <option value="chinese">语文</option>
+                            <option value="english">英语</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade"><span class="required">*</span> 年级</label>
+                        <select id="grade" name="grade" required>
+                            <option value="">请选择年级</option>
+                            <option value="grade1">一年级</option>
+                            <option value="grade2">二年级</option>
+                            <option value="grade3">三年级</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="questionType"><span class="required">*</span> 题型</label>
+                        <select id="questionType" name="questionType" required>
+                            <option value="">请选择题型</option>
+                            <option value="choice">选择题</option>
+                            <option value="fill">填空题</option>
+                            <option value="essay">问答题</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workflowName"><span class="required">*</span> 工作流名称</label>
+                        <select id="workflowName" name="workflowName">
+                            <option value="">请选择工作流名称</option>
+                            <option value="wf.ocr.liberal_small" data-tooltip="**适用场景**:<br>- 语文、英语等选择题、填空题<br>- 历史、政治简答题<br>- 姓名、学号等基本信息<br>**特征**: 布局简单">文科小区域队列（队列名称：wf.ocr.liberal_small）</option>
+                            <option value="wf.ocr.science_small" data-tooltip="**适用场景**:<br>- 数学、物理、化学选择题<br>- 理科填空题<br>- 简单计算题<br>**特征**: 布局简单，包含少量公式">理科小区域队列（队列名称：wf.ocr.science_small）</option>
+                            <option value="wf.ocr.table_text" data-tooltip="**适用场景**:<br>- 表格形式的题目<br>- 数据统计题<br>- 表格填空题<br>**特征**: 包含表格结构">表格文字队列（队列名称：wf.ocr.table_text）</option>
+                            <option value="wf.ocr.composition" data-tooltip="**适用场景**:<br>- 语文作文题<br>- 英语写作题<br>- 大段文字识别<br>**特征**: 长篇文字内容">大作文队列（队列名称：wf.ocr.composition）</option>
+                            <option value="wf.ocr.formula" data-tooltip="**适用场景**:<br>- 数学公式识别<br>- 物理化学方程式<br>- 复杂符号识别<br>**特征**: 包含大量数学符号和公式">公式符号队列（队列名称：wf.ocr.formula）</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="promptText"><span class="required">*</span> 提示词</label>
+                        <textarea id="promptText" name="promptText" rows="4" required placeholder="">Test</textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancelBtn">取消</button>
+                <button class="btn btn-primary" id="saveBtn">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 删除确认模态框 -->
+    <div class="modal" id="deleteConfirmModal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>确认删除</h3>
+                <button class="modal-close" id="deleteModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="deleteConfirmText">您确定要删除这条工作流配置吗？此操作不可恢复。</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="deleteCancelBtn">取消</button>
+                <button class="btn btn-danger" id="deleteConfirmBtn">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

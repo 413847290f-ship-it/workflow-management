@@ -1,0 +1,13 @@
+{
+  "name": "workflow-management",
+  "version": "1.0.0",
+  "description": "工作流管理配置系统",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": ["workflow", "management", "static"],
+  "author": "",
+  "license": "MIT"
+}
